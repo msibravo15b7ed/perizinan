@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landing Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a id="brandName" class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="perizinan.html">Perizinan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kontak">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Slideshow -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="slide1.jpg" class="d-block w-100" alt="Slide 1" />
+        </div>
+        <div class="carousel-item">
+          <img src="silde2.jpg" class="d-block w-100" alt="Slide 2" />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Tentang -->
+    <section id="tentang" class="py-5 text-center">
+      <div class="container">
+        <h2 class="mb-4">Tentang Kami</h2>
+        <p class="lead">
+          Visi Wali Kota dan Wakil Wali Kota Medan periode 2021-2026:
+        </p>
+        <blockquote class="blockquote">
+          <p class="mb-3">
+            "Terwujudnya Masyarakat Kota Medan yang Berkah, Maju dan Kondusif"
+          </p>
+        </blockquote>
+        <p class="lead">
+          Dinas Penanaman Modal dan Pelayanan Terpadu Satu PIntu Kota Medan
+          merupakan unsur pelaksana urusan pemerintah bidang penanaman modal di
+          kota medan dengan sasaran strategis meningkatkan iklim investasi dan
+          kualitas pelayanan perizinan di kota medan. Penciptaan lingkungan yang
+          kondusif dalam mendukung investasi serta promosi investasi daerah dan
+          peningkatan kualitas pelayanan perizinan merupakan suatu proses yang
+          berkesinambungan dan berkelanjutan dari perencanaan sampai dengan
+          pertanggungjawaban keuangan daerah
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <p class="mb-1">Kontak: +62 123 4567 890</p>
+        <p class="mb-1">Lokasi: Jakarta, Indonesia</p>
+        <div>
+          <a href="#" class="text-white me-3">Facebook</a>
+          <a href="#" class="text-white me-3">Twitter</a>
+          <a href="#" class="text-white">Instagram</a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Ambil data dari app.json
+      fetch("app.json")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("brandName").textContent = data.brand;
+        })
+        .catch((error) => console.error("Gagal mengambil brand:", error));
+    </script>
+  </body>
+</html>
