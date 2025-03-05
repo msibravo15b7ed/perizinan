@@ -122,28 +122,34 @@ session_start();
 <!-- Bootstrap & SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
-// Toggle antara Login & Register
-document.getElementById("toggleForm").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
     let loginForm = document.getElementById("loginForm");
     let registerForm = document.getElementById("registerForm");
     let toggleText = document.getElementById("toggleText");
     let authTitle = document.getElementById("authTitle");
 
-    if (loginForm.style.display === "none") {
-        loginForm.style.display = "block";
-        registerForm.style.display = "none";
-        authTitle.innerText = "Login";
-        toggleText.innerHTML = 'Belum punya akun? <a href="#" id="toggleForm">Register</a>';
-    } else {
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
-        authTitle.innerText = "Register";
-        toggleText.innerHTML = 'Sudah punya akun? <a href="#" id="toggleForm">Login</a>';
-    }
-});
+    toggleText.addEventListener("click", function(event) {
+        if (event.target.id === "toggleForm") {
+            event.preventDefault(); // Hindari reload
 
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                authTitle.innerText = "Login";
+                toggleText.innerHTML = 'Belum punya akun? <a href="#" id="toggleForm">Register</a>';
+            } else {
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+                authTitle.innerText = "Register";
+                toggleText.innerHTML = 'Sudah punya akun? <a href="#" id="toggleForm">Login</a>';
+            }
+        }
+    });
+});
+</script>
+
+<script>
 // Cek session untuk pesan sukses
 <?php if (isset($_SESSION['success'])) { ?>
     Swal.fire({
