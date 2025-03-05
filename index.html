@@ -8,12 +8,28 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <style>
+      .modal-content {
+        max-width: 350px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .modal-body input {
+        font-size: 14px;
+        padding: 8px;
+      }
+      .modal-body button {
+        font-size: 14px;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-        <a id="brandName" class="navbar-brand" href="#"></a>
+        <a id="brandName" class="navbar-brand" href="#">Perizinan Online</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -34,7 +50,7 @@
               <a class="nav-link" href="perizinan.html">Perizinan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#kontak">Kontak</a>
+              <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
             </li>
           </ul>
         </div>
@@ -82,44 +98,31 @@
           </p>
         </blockquote>
         <p class="lead">
-          Dinas Penanaman Modal dan Pelayanan Terpadu Satu PIntu Kota Medan
+          Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu Kota Medan
           merupakan unsur pelaksana urusan pemerintah bidang penanaman modal di
           kota medan dengan sasaran strategis meningkatkan iklim investasi dan
-          kualitas pelayanan perizinan di kota medan. Penciptaan lingkungan yang
-          kondusif dalam mendukung investasi serta promosi investasi daerah dan
-          peningkatan kualitas pelayanan perizinan merupakan suatu proses yang
-          berkesinambungan dan berkelanjutan dari perencanaan sampai dengan
-          pertanggungjawaban keuangan daerah
+          kualitas pelayanan perizinan di kota medan.
         </p>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-      <div class="container text-center">
-        <p class="mb-1">Kontak: +62 123 4567 890</p>
-        <p class="mb-1">Lokasi: Jakarta, Indonesia</p>
-        <div>
-          <a href="#" class="text-white me-3">Facebook</a>
-          <a href="#" class="text-white me-3">Twitter</a>
-          <a href="#" class="text-white">Instagram</a>
+    <!-- Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control mb-2" placeholder="Username" />
+            <input type="password" class="form-control mb-2" placeholder="Password" />
+            <button class="btn btn-primary w-100">Masuk</button>
+          </div>
         </div>
       </div>
-    </footer>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // Ambil data dari app.json
-      fetch("app.json")
-        .then((response) => response.json())
-        .then((data) => {
-          document.getElementById("brandName").textContent = data.brand;
-        })
-        .catch((error) => console.error("Gagal mengambil brand:", error));
-    </script>
   </body>
 </html>
