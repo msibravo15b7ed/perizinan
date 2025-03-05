@@ -1,6 +1,9 @@
 <?php
 session_start();
 session_destroy();
-header("Location: login.html"); // Redirect ke halaman login
+session_start();
+// Simpan pesan sukses di session
+$_SESSION['success'] = "Anda berhasil logout!";
+header("Location: /perizinan"); // Redirect ke halaman login
 exit();
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'config.php'; // Pastikan koneksi database benar
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,7 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $username, $email, $hashed_password);
 
     if ($stmt->execute()) {
-        echo "Registrasi berhasil! Silakan <a href='login.html'>login</a>.";
+        // Ambil ID pengguna yang baru saja didaftarkan
+        $user_id = $stmt->insert_id;
+
+        // Set session untuk login
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+
+        // Redirect ke halaman dashboard
+        header("Location: dashboard.php");
+        exit();
     } else {
         echo "Terjadi kesalahan, coba lagi.";
     }
